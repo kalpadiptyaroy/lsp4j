@@ -17,6 +17,8 @@ import java.util.Arrays
 import java.util.LinkedHashMap
 import java.util.List
 import java.util.Map
+import java.util.HashSet
+import java.util.Set
 import org.eclipse.lsp4j.adapters.CompletionItemDefaultsEditRangeTypeAdapter
 import org.eclipse.lsp4j.adapters.CompletionItemTextEditTypeAdapter
 import org.eclipse.lsp4j.adapters.DocumentChangeListAdapter
@@ -3478,13 +3480,13 @@ class DidChangeWatchedFilesParams {
 	 * The actual file events.
 	 */
 	@NonNull
-	List<FileEvent> changes
+	Set<FileEvent> changes
 
 	new() {
-		this(new ArrayList)
+		this(new HashSet)
 	}
 
-	new(@NonNull List<FileEvent> changes) {
+	new(@NonNull Set<FileEvent> changes) {
 		this.changes = Preconditions.checkNotNull(changes, 'changes')
 	}
 }
